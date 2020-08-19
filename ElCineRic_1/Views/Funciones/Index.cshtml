@@ -1,0 +1,11 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Index";
+}
+
+@{ 
+    for (int x = 0; x < Model.Rows.Count; x++)
+    {
+        @:<h1> @Model.Rows[x][10].ToString()</h1>
+    }
+}

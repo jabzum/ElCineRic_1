@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetFuncion" targetNamespace="http://tempuri.org/DataSetFuncion.xsd" xmlns:mstns="http://tempuri.org/DataSetFuncion.xsd" xmlns="http://tempuri.org/DataSetFuncion.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="MiDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="MiDBConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.MiDBConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_FuncionTableAdapter" GeneratorDataComponentClassName="View_FuncionTableAdapter" Name="View_Funcion" UserDataComponentName="View_FuncionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MiDBConnectionString (Web.config)" DbObjectName="MiDB.dbo.View_Funcion" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id_cine, cine, sala, filas, columnas, calidad, id_movie, url, fecha_hora, precio, seats, recaudado FROM dbo.View_Funcion</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_cine" DataSetColumn="id_cine" />
+              <Mapping SourceColumn="cine" DataSetColumn="cine" />
+              <Mapping SourceColumn="sala" DataSetColumn="sala" />
+              <Mapping SourceColumn="filas" DataSetColumn="filas" />
+              <Mapping SourceColumn="columnas" DataSetColumn="columnas" />
+              <Mapping SourceColumn="calidad" DataSetColumn="calidad" />
+              <Mapping SourceColumn="id_movie" DataSetColumn="id_movie" />
+              <Mapping SourceColumn="url" DataSetColumn="url" />
+              <Mapping SourceColumn="fecha_hora" DataSetColumn="fecha_hora" />
+              <Mapping SourceColumn="precio" DataSetColumn="precio" />
+              <Mapping SourceColumn="seats" DataSetColumn="seats" />
+              <Mapping SourceColumn="recaudado" DataSetColumn="recaudado" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetFuncion" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetFuncion" msprop:Generator_UserDSName="DataSetFuncion">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_Funcion" msprop:Generator_TableClassName="View_FuncionDataTable" msprop:Generator_TableVarName="tableView_Funcion" msprop:Generator_TablePropName="View_Funcion" msprop:Generator_RowDeletingName="View_FuncionRowDeleting" msprop:Generator_RowChangingName="View_FuncionRowChanging" msprop:Generator_RowEvHandlerName="View_FuncionRowChangeEventHandler" msprop:Generator_RowDeletedName="View_FuncionRowDeleted" msprop:Generator_UserTableName="View_Funcion" msprop:Generator_RowChangedName="View_FuncionRowChanged" msprop:Generator_RowEvArgName="View_FuncionRowChangeEvent" msprop:Generator_RowClassName="View_FuncionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_cine" msprop:Generator_ColumnVarNameInTable="columnid_cine" msprop:Generator_ColumnPropNameInRow="id_cine" msprop:Generator_ColumnPropNameInTable="id_cineColumn" msprop:Generator_UserColumnName="id_cine" type="xs:int" />
+              <xs:element name="cine" msprop:Generator_ColumnVarNameInTable="columncine" msprop:Generator_ColumnPropNameInRow="cine" msprop:Generator_ColumnPropNameInTable="cineColumn" msprop:Generator_UserColumnName="cine">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sala" msprop:Generator_ColumnVarNameInTable="columnsala" msprop:Generator_ColumnPropNameInRow="sala" msprop:Generator_ColumnPropNameInTable="salaColumn" msprop:Generator_UserColumnName="sala">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="filas" msprop:Generator_ColumnVarNameInTable="columnfilas" msprop:Generator_ColumnPropNameInRow="filas" msprop:Generator_ColumnPropNameInTable="filasColumn" msprop:Generator_UserColumnName="filas" type="xs:int" />
+              <xs:element name="columnas" msprop:Generator_ColumnVarNameInTable="columncolumnas" msprop:Generator_ColumnPropNameInRow="columnas" msprop:Generator_ColumnPropNameInTable="columnasColumn" msprop:Generator_UserColumnName="columnas" type="xs:int" />
+              <xs:element name="calidad" msprop:Generator_ColumnVarNameInTable="columncalidad" msprop:Generator_ColumnPropNameInRow="calidad" msprop:Generator_ColumnPropNameInTable="calidadColumn" msprop:Generator_UserColumnName="calidad">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_movie" msprop:Generator_ColumnVarNameInTable="columnid_movie" msprop:Generator_ColumnPropNameInRow="id_movie" msprop:Generator_ColumnPropNameInTable="id_movieColumn" msprop:Generator_UserColumnName="id_movie" type="xs:int" />
+              <xs:element name="url" msprop:Generator_ColumnVarNameInTable="columnurl" msprop:Generator_ColumnPropNameInRow="url" msprop:Generator_ColumnPropNameInTable="urlColumn" msprop:Generator_UserColumnName="url">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fecha_hora" msprop:Generator_ColumnVarNameInTable="columnfecha_hora" msprop:Generator_ColumnPropNameInRow="fecha_hora" msprop:Generator_ColumnPropNameInTable="fecha_horaColumn" msprop:Generator_UserColumnName="fecha_hora" type="xs:dateTime" />
+              <xs:element name="precio" msprop:Generator_ColumnVarNameInTable="columnprecio" msprop:Generator_ColumnPropNameInRow="precio" msprop:Generator_ColumnPropNameInTable="precioColumn" msprop:Generator_UserColumnName="precio" type="xs:decimal" />
+              <xs:element name="seats" msprop:Generator_ColumnVarNameInTable="columnseats" msprop:Generator_ColumnPropNameInRow="seats" msprop:Generator_ColumnPropNameInTable="seatsColumn" msprop:Generator_UserColumnName="seats">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="recaudado" msprop:Generator_ColumnVarNameInTable="columnrecaudado" msprop:Generator_ColumnPropNameInRow="recaudado" msprop:Generator_ColumnPropNameInTable="recaudadoColumn" msprop:Generator_UserColumnName="recaudado" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_Funcion" />
+      <xs:field xpath="mstns:id_cine" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
