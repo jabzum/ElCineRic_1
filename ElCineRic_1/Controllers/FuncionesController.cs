@@ -20,6 +20,8 @@ namespace ElCineRic_1.Controllers
             return View(lf);
         }
 
+
+
         // GET: Funciones/Details/5
         public ActionResult Details(int id)
         {
