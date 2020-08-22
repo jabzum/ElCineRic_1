@@ -25,9 +25,12 @@ namespace ElCineRic_1
            );
             routes.MapRoute(
             name: "TmdbApi",
+            url: "TmdbApi/{id}/",
             defaults: new { controller = "TmdbApi", action = "GetPerson", id = "" },
+            constraints: new { id = @"^[0-9]+$" }
             );
             routes.MapRoute(
+                name: "TmdbApiPaging",
                 url: "TmdbApi/{peopleName}/{page}",
                 defaults: new { controller = "TmdbApi", action = "Index", peopleName = "", page = "" },
                 constraints: new { peopleName = @"^[a-zA-Z]+$", page = @"^[0-9]+$" }
