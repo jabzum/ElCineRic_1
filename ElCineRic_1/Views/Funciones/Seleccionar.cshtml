@@ -1,0 +1,30 @@
+﻿@model ElCineRic_1.Objetos.ObjSeleccionHoras
+@{
+    ViewBag.Title = "Horario de la función";
+}
+<br />
+<br />
+<h1 class="text-center">Selecciona el horario</h1>
+
+
+    <div class="list-group col-md-4" style="margin-left: auto; margin-right: auto;">
+    <p class="list-group-item list-group-item-action active">
+        Horarios de la función
+    </p>
+
+    @{
+        //mover a seleccino previa
+        //hasta aca
+        string idfuncion = "";
+        string hora = "";
+        for (int x = 0; x < Model.TablaFuncionesDelDia.Rows.Count; x++)
+        {
+            idfuncion = Model.TablaFuncionesDelDia.Rows[x][0].ToString();
+            hora = Model.TablaFuncionesDelDia.Rows[x][13].ToString();
+            @:<a href="/Funciones/Index/@idfuncion" class="list-group-item list-group-item-action"> @hora </a>
+        }
+    }
+    </div>
+
+
+

@@ -20,9 +20,18 @@ namespace ElCineRic_1
             );
             routes.MapRoute(
                name: "Func",
-               url: "{controller}/{action}/{id}",
-               defaults: new { controller = "Funciones", action = "Index", id = UrlParameter.Optional }
+               url: "{controller}/{action}/{id}/{sala}",
+               defaults: new { controller = "Funciones", action = "Index", id = UrlParameter.Optional, sala = UrlParameter.Optional }
            );
+            routes.MapRoute(
+            name: "TmdbApi",
+            defaults: new { controller = "TmdbApi", action = "GetPerson", id = "" },
+            );
+            routes.MapRoute(
+                url: "TmdbApi/{peopleName}/{page}",
+                defaults: new { controller = "TmdbApi", action = "Index", peopleName = "", page = "" },
+                constraints: new { peopleName = @"^[a-zA-Z]+$", page = @"^[0-9]+$" }
+            );
         }
     }
 }

@@ -1,0 +1,42 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Seleccionar Sala";
+}
+<br />
+
+@if (Session["mensaje"] != null)
+{
+    <div style="margin: 30px;" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Tu pago se ha recibido! te esperamos!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    
+}
+@if (Session["mensaje"] != null) {
+    Session["mensaje"] = null;
+}
+
+<h1>Selecionar películas</h1>
+<br />
+
+<div class="d-flex justify-content-center">
+    @{
+        for (int x = 0; x < Model.Rows.Count; x++)
+        {
+            decimal ppp = Convert.ToDecimal(Model.Rows[x][6].ToString());
+            @:<div class="card" style="width: 18rem;">
+                @:<img class="card-img-top" src="/Content/img/@Model.Rows[x][1].ToString()" alt="Card image cap">
+                @:<div class="card-body">
+                    @:<h5 class="card-title">@Model.Rows[x][2].ToString()</h5>
+                    string info = Model.Rows[x][4].ToString() + " Calidad: " + Model.Rows[x][5].ToString() + " Valor: Q. " + ppp.ToString(".00");
+            @:<p class="card-text">@info</p>
+                    @:<a href="/Funciones/Dia/@Model.Rows[x][0].ToString()/@Model.Rows[x][3].ToString()" class="btn btn-primary">Seleccionar</a>
+                    @:</div>
+                @:</div>
+        }
+    }
+
+</div>
+

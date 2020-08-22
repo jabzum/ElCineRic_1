@@ -143,6 +143,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FuncionesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TmdbApiController.cs" />
     <Compile Include="DAL\DataSetFuncion.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -151,12 +152,31 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Class\KnownFor.cs" />
+    <Compile Include="Models\Class\PagingInfo.cs" />
+    <Compile Include="Models\Class\PaginHelper.cs" />
+    <Compile Include="Models\Class\ResponsePerson.cs" />
+    <Compile Include="Models\Class\ResponseSearchPeople.cs" />
+    <Compile Include="Models\Class\Result.cs" />
     <Compile Include="Models\Funciones.cs" />
+    <Compile Include="Models\TheMovieDb.cs" />
+    <Compile Include="Objetos\Butaca.cs" />
+    <Compile Include="Objetos\Butacas.cs" />
+    <Compile Include="Objetos\ObjSeleccionHoras.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\btf1.jpg" />
+    <Content Include="Content\img\c.png" />
+    <Content Include="Content\img\casino.jpg" />
+    <Content Include="Content\img\hp.jpg" />
+    <Content Include="Content\img\s.png" />
+    <Content Include="Content\img\st1.jpg" />
+    <Content Include="Content\img\st2.jpg" />
+    <Content Include="Content\img\stb.jpg" />
+    <Content Include="Content\img\u.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -177,6 +197,7 @@
     <Content Include="DAL\DataSetFuncion.xss">
       <DependentUpon>DataSetFuncion.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -203,6 +224,14 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Funciones\Index.cshtml" />
+    <Content Include="Views\Funciones\Pelis.cshtml" />
+    <Content Include="Views\TmdbApi\Index.cshtml" />
+    <Content Include="Views\GetPerson.cshtml" />
+    <Content Include="Views\Funciones\Create.cshtml" />
+    <Content Include="Views\Funciones\Seleccionar.cshtml" />
+    <Content Include="Views\sdfdf.cshtml" />
+    <Content Include="Views\Funciones\Dia.cshtml" />
+    <Content Include="Views\Funciones\SelPeliculas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

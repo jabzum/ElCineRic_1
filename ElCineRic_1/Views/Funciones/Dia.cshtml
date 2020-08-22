@@ -1,0 +1,26 @@
+﻿@model List<DateTime>
+@{
+    ViewBag.Title = "Dia";
+}
+
+<style>
+.m {
+ margin: 10px;
+}
+</style>
+<br />
+<h3>Selecciona el Día</h3>
+
+<div class="d-flex justify-content-center">
+    @{
+        for (int x = 0; x < Model.Count; x++)
+        {
+            string dia = Model.ElementAt(x).ToString("dddd");
+            @:<a href="/Funciones/Seleccionar/@x" class="btn btn-outline-success btn-lg">@dia</a>
+    }
+    }
+</div>
+
+
+
+
