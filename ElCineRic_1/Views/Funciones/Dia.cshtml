@@ -1,6 +1,7 @@
 ﻿@model List<DateTime>
 @{
     ViewBag.Title = "Dia";
+<<<<<<< HEAD
     //llega esto desde el controlador.
     //Session["idmovie"] = id;
     //Session["idimdb"] = idimdb;
@@ -72,6 +73,27 @@
     });
 </script>
 
+=======
+}
+
+<style>
+.m {
+ margin: 10px;
+}
+</style>
+<br />
+<h3>Selecciona el Día</h3>
+
+<div class="d-flex justify-content-center">
+    @{
+        for (int x = 0; x < Model.Count; x++)
+        {
+            string dia = Model.ElementAt(x).ToString("dddd");
+            @:<a href="/Funciones/Seleccionar/@x" class="btn btn-outline-success btn-lg">@dia</a>
+    }
+    }
+</div>
+>>>>>>> 39f4d3ac7613dcfd7de81c74d225025f2d5ea58b
 
 
 
