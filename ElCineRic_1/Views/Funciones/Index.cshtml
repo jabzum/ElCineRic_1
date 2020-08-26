@@ -1,11 +1,146 @@
-﻿@model System.Data.DataTable
+﻿@model ElCineRic_1.Objetos.Butacas
 @{
-    ViewBag.Title = "Json desde la DB";
+    ViewBag.Title = "Selección de butaca";
 }
 
-@{ 
-    for (int x = 0; x < Model.Rows.Count; x++)
-    {
-        @:<h1> @Model.Rows[x][10].ToString()</h1>
+<style>
+    .pantalla {
+        width: 70%;
+        height: 50px;
+        background: #183b42;
+        position: relative;
+        overflow: hidden;
+        border-radius: 100% 100% 0 0;
+        text-align: center;
+        vertical-align: middle;
+        padding-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
     }
+</style>
+
+<script>
+    function calcular() {
+        let seleccionados = document.querySelectorAll('input[type="checkbox"]:checked').length;
+        let pop = 25 * document.getElementById('popcorn').value;
+        let precio = document.getElementById('precio').innerHTML
+        let total = (precio * seleccionados) + pop;
+        
+        document.getElementById('tot').innerHTML = 'Q. ' + total
+        document.getElementById('tot2').innerHTML = 'Total a pagar Q. ' + total
+    }
+    function cambiar(id) {
+        var check = document.getElementById('c' + id);
+        var img = document.getElementById('i' + id);
+        console.log(check)
+        if (check.checked)
+            img.src = '/Content/img/u.png';
+        else
+            img.src = '/Content/img/s.png';
+        check.checked = !check.checked;
+        calcular();
+    }
+    
+</script>
+<br />
+@{
+    DateTime fecha = Convert.ToDateTime(Session["fecha"].ToString());
+    @:<h2 class="text-center">Función del @fecha.ToString("d") a las @Session["hora"]</h2>
 }
+<div class='pantalla'><h4>PANTALLA</h4></div>
+<br />
+<br />
+
+<form action="/Funciones/Create" method="post">
+    <table style="border:1px solid black;margin-left:auto;margin-right:auto; border-radius:15px">
+@{
+    int f = Convert.ToInt32(Session["filas"].ToString());
+    int c = Convert.ToInt32(Session["columnas"]);
+    int cf = 1;
+    int cc = 0;
+    decimal pre = Convert.ToDecimal(Session["precio"].ToString());
+    double precio = Convert.ToDouble(pre);
+
+    for (int x = 0; x < Model.ListaButacas.Count; x++)
+    {
+        string im = "";
+        string id = Model.ListaButacas.ElementAt(x).id;
+        string id_silla = Model.ListaButacas.ElementAt(x).id_silla;
+        string cid = "c" + id;
+        string iid = "i" + id;
+        string funcion = "";
+
+
+        if (Model.ListaButacas.ElementAt(x).ocupado)
+        { im = "/Content/img/c.png"; funcion = ""; }
+        else { im = "/Content/img/u.png"; funcion = "onClick=cambiar('" + id + "')"; }
+
+
+        @Html.Raw(cc == 0 ? "<tr>" : "")
+          @:<td> <div id='@id' style="margin-top: 20px;" class="checkbox-wrapper" @funcion>
+            @:<input style="opacity: 0" id='@cid' type="checkbox" name='@id_silla'/>
+            @:<h5 style="text-align: center"> @id </h5>
+            @:<img width="80" height="80" id="@iid" src="@im" />       
+        @:</div> </td> @Html.Raw(cc == c ? "</tr>" : "")
+        cc++;
+        if (cc == c)
+        { cc = 0; }
+    }
+    @:</table>
+    @:<br />
+    }
+
+    <div class="d-flex justify-content-center" style="margin: 20px;">
+            <h3 id="tot">Total a pagar: Q 0.00</h3> <button style="margin-left: 20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="data">Confirmar</button>
+    </div>
+    
+    
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirma tu selección</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center; vertical-align: middle;">
+                        <h3>¿Cuantos combos de palomitas y bebida deseas agregar? (Q. 25 c/u)</h3>
+                        <img width=100px src="https://www.pngkit.com/png/full/29-294508_movie-drink-png-svg-freeuse-popcorn-and-drink.png" alt="">
+                        <input style="margin-left: 10px" type="number" id="popcorn" oninput="calcular()" onclick="calcular()" min=0 max=100 value=0>
+                    </div>
+                    <div class="form-group">
+                        <br>
+                        <div class="icon-container">
+                            <label for="fname">Tarjetas aceptadas:</label>
+                            <i class="fa fa-cc-visa" style="color:rgb(255, 255, 255);"></i>
+                            <i class="fa fa-cc-amex" style="color:rgb(10, 131, 36);"></i>
+                            <i class="fa fa-cc-mastercard" style="color:rgb(135, 30, 30);"></i>
+                            <i class="fa fa-cc-discover" style="color:orange;"></i>
+                        </div>
+                        <label class="col-form-label" for="ccn">Número de tarjeta:</label>
+                        <input class="form-control" id="ccn" type="tel" inputmode="numeric" placeholder="1111 2222 3333 4444">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Fecha de expiración</label>
+                        <input type="text" class="form-control" placeholder="Mes/Año">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">CVV</label>
+                        <input type="text" class="form-control" placeholder="###">
+                    </div>
+                    <h1 id="tot2" style="text-align: center;">Total a pagar: Q 0.00</h1>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <input type="submit" class="btn btn-primary" value="Pagar" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 hidden id="precio">@precio</h1>
+</form>
+
