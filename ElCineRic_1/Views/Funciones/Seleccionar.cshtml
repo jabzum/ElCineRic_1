@@ -5,6 +5,7 @@
 <br />
 <br />
 <h1 class="text-center">Selecciona el horario</h1>
+<<<<<<< HEAD
 @{
     DateTime fecha = Convert.ToDateTime(Session["fecha"].ToString());
     @:<h3 class="text-center">Función del @fecha.ToString("d")</h3>
@@ -12,6 +13,10 @@
 <br />
 
 
+=======
+
+<<<<<<< HEAD
+>>>>>>> 59a7950fb21dfa077a4ae07832f337b0f2769648
 <div class="row">
     <div class="col-md-6" style="text-align:center">
         <img id="pic" src="" />
@@ -79,6 +84,30 @@
     });
 </script>
 
+<<<<<<< HEAD
+=======
+=======
+
+    <div class="list-group col-md-4" style="margin-left: auto; margin-right: auto;">
+    <p class="list-group-item list-group-item-action active">
+        Horarios de la función
+    </p>
+
+    @{
+        //mover a seleccino previa
+        //hasta aca
+        string idfuncion = "";
+        string hora = "";
+        for (int x = 0; x < Model.TablaFuncionesDelDia.Rows.Count; x++)
+        {
+            idfuncion = Model.TablaFuncionesDelDia.Rows[x][0].ToString();
+            hora = Model.TablaFuncionesDelDia.Rows[x][13].ToString();
+            @:<a href="/Funciones/Index/@idfuncion" class="list-group-item list-group-item-action"> @hora </a>
+        }
+    }
+    </div>
+>>>>>>> 39f4d3ac7613dcfd7de81c74d225025f2d5ea58b
+>>>>>>> 59a7950fb21dfa077a4ae07832f337b0f2769648
 
 
 

@@ -3,6 +3,10 @@
     ViewBag.Title = "Seleccionar Sala";
 }
 <br />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 59a7950fb21dfa077a4ae07832f337b0f2769648
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
@@ -10,6 +14,11 @@
 <script>
 
 </script>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 39f4d3ac7613dcfd7de81c74d225025f2d5ea58b
+>>>>>>> 59a7950fb21dfa077a4ae07832f337b0f2769648
 
 @if (Session["mensaje"] != null)
 {
@@ -25,34 +34,75 @@
     Session["mensaje"] = null;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 59a7950fb21dfa077a4ae07832f337b0f2769648
 <h1>En cartelera</h1>
 <br />
 
 <div id="cont" class="d-flex justify-content-center">
+<<<<<<< HEAD
+=======
+=======
+<h1>Selecionar películas</h1>
+<br />
+
+<div class="d-flex justify-content-center">
+>>>>>>> 39f4d3ac7613dcfd7de81c74d225025f2d5ea58b
+>>>>>>> 59a7950fb21dfa077a4ae07832f337b0f2769648
     @{
         for (int x = 0; x < Model.Rows.Count; x++)
         {
             decimal ppp = Convert.ToDecimal(Model.Rows[x][6].ToString());
             @:<div class="card" style="width: 18rem;">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 59a7950fb21dfa077a4ae07832f337b0f2769648
             string onclick = "onclick=movieSelected('" + Model.Rows[x][1].ToString() + "')";
                 @:<img id="@Model.Rows[x][1].ToString()"  @onclick class="card-img-top" src="" alt="Card image cap">
                 @:<div class="card-body">
                     @:<h5 class="card-title">@Model.Rows[x][2].ToString()</h5>
                     string info = "Q. " + ppp.ToString(".00") + " (HOY)";
+<<<<<<< HEAD
                     string salaa = Model.Rows[x][4].ToString() + " - " + Model.Rows[x][5].ToString();
+=======
+                    string salaa = Model.Rows[x][4].ToString() + " " + Model.Rows[x][5].ToString();
+>>>>>>> 59a7950fb21dfa077a4ae07832f337b0f2769648
                     @:<p class="card-text"><strong>@salaa</strong></p>
                     @:<p class="card-text">@info</p>
             
                     @:<a href="/Funciones/Dia/@Model.Rows[x][0].ToString()/@Model.Rows[x][3].ToString()/@Model.Rows[x][1].ToString()" class="btn btn-success">Seleccionar</a>
+<<<<<<< HEAD
                     @:<a style="margin-left:7px" class="badge badge-pill badge-danger" href="/Funciones/MasBarato/@Model.Rows[x][0].ToString()/@Model.Rows[x][3].ToString()/@Model.Rows[x][1].ToString()">Promociones</a>
                     
                 @:</div>
              @:</div>
+=======
+                    @:<a style="margin-left:7px" href="/Funciones/MasBarato/@Model.Rows[x][0].ToString()/@Model.Rows[x][3].ToString()/@Model.Rows[x][1].ToString()" class="btn btn-outline-success"><i class="material-icons">monetization_on</i></a>
+                @:</div>
+             @:</div>
+=======
+                @:<img class="card-img-top" src="/Content/img/@Model.Rows[x][1].ToString()" alt="Card image cap">
+                @:<div class="card-body">
+                    @:<h5 class="card-title">@Model.Rows[x][2].ToString()</h5>
+                    string info = Model.Rows[x][4].ToString() + " Calidad: " + Model.Rows[x][5].ToString() + " Valor: Q. " + ppp.ToString(".00");
+            @:<p class="card-text">@info</p>
+                    @:<a href="/Funciones/Dia/@Model.Rows[x][0].ToString()/@Model.Rows[x][3].ToString()" class="btn btn-primary">Seleccionar</a>
+                    @:</div>
+                @:</div>
+>>>>>>> 39f4d3ac7613dcfd7de81c74d225025f2d5ea58b
+>>>>>>> 59a7950fb21dfa077a4ae07832f337b0f2769648
         }
     }
 
 </div>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 59a7950fb21dfa077a4ae07832f337b0f2769648
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
@@ -100,3 +150,8 @@
     });
 </script>
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 39f4d3ac7613dcfd7de81c74d225025f2d5ea58b
+>>>>>>> 59a7950fb21dfa077a4ae07832f337b0f2769648
