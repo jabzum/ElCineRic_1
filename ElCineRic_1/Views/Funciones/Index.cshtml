@@ -19,6 +19,7 @@
         color: white;
     }
 </style>
+<<<<<<< HEAD
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
     function calcular() {
@@ -227,17 +228,50 @@
         else
             alert("Hay campos que no se llenaron correctamente, por favor verifica");
     } 
+=======
+
+<script>
+    function calcular() {
+        let seleccionados = document.querySelectorAll('input[type="checkbox"]:checked').length;
+        let pop = 25 * document.getElementById('popcorn').value;
+        let precio = document.getElementById('precio').innerHTML
+        let total = (precio * seleccionados) + pop;
+        
+        document.getElementById('tot').innerHTML = 'Q. ' + total
+        document.getElementById('tot2').innerHTML = 'Total a pagar Q. ' + total
+    }
+    function cambiar(id) {
+        var check = document.getElementById('c' + id);
+        var img = document.getElementById('i' + id);
+        console.log(check)
+        if (check.checked)
+            img.src = '/Content/img/u.png';
+        else
+            img.src = '/Content/img/s.png';
+        check.checked = !check.checked;
+        calcular();
+    }
+    
+>>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
 </script>
 <br />
 @{
     DateTime fecha = Convert.ToDateTime(Session["fecha"].ToString());
+<<<<<<< HEAD
     @:<h2 id="infofuncion" class="text-center">Función del @fecha.ToString("d") a las @Session["hora"] horas en la Sala @Session["sala"]</h2>
+=======
+    @:<h2 class="text-center">Función del @fecha.ToString("d") a las @Session["hora"]</h2>
+>>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
 }
 <div class='pantalla'><h4>PANTALLA</h4></div>
 <br />
 <br />
 
+<<<<<<< HEAD
 <form id="formulario" action="/Funciones/Create" method="post">
+=======
+<form action="/Funciones/Create" method="post">
+>>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
     <table style="border:1px solid black;margin-left:auto;margin-right:auto; border-radius:15px">
 @{
     int f = Convert.ToInt32(Session["filas"].ToString());
@@ -264,7 +298,11 @@
 
         @Html.Raw(cc == 0 ? "<tr>" : "")
           @:<td> <div id='@id' style="margin-top: 20px;" class="checkbox-wrapper" @funcion>
+<<<<<<< HEAD
             @:<input style="opacity: 0" id='@cid' alt="@id"type="checkbox" name='@id_silla'/>
+=======
+            @:<input style="opacity: 0" id='@cid' type="checkbox" name='@id_silla'/>
+>>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
             @:<h5 style="text-align: center"> @id </h5>
             @:<img width="80" height="80" id="@iid" src="@im" />       
         @:</div> </td> @Html.Raw(cc == c ? "</tr>" : "")
@@ -293,6 +331,7 @@
                 </div>
                 <div class="modal-body">
                     <div style="text-align: center; vertical-align: middle;">
+<<<<<<< HEAD
                         <h4>¿Cuantos combos de palomitas y bebida deseas agregar? (Q. 20 c/u)</h4>
                         <img width=70px src="/Content/img/popcornsoda.png" alt="">
                         <input style="margin-left: 10px" type="number" id="popcorn" oninput="calcular()" onclick="calcular()" min=0 max=100 value=0>
@@ -302,6 +341,12 @@
                         <img width=80px src="/Content/img/nachosoda.png" alt="">
                         <input style="margin-left: 10px" type="number" id="nachos" oninput="calcular()" onclick="calcular()" min=0 max=100 value=0>
                     </div>
+=======
+                        <h3>¿Cuantos combos de palomitas y bebida deseas agregar? (Q. 25 c/u)</h3>
+                        <img width=100px src="https://www.pngkit.com/png/full/29-294508_movie-drink-png-svg-freeuse-popcorn-and-drink.png" alt="">
+                        <input style="margin-left: 10px" type="number" id="popcorn" oninput="calcular()" onclick="calcular()" min=0 max=100 value=0>
+                    </div>
+>>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
                     <div class="form-group">
                         <br>
                         <div class="icon-container">
@@ -312,6 +357,7 @@
                             <i class="fa fa-cc-discover" style="color:orange;"></i>
                         </div>
                         <label class="col-form-label" for="ccn">Número de tarjeta:</label>
+<<<<<<< HEAD
                         <input class="form-control" required id="ccn" type="tel" inputmode="numeric" placeholder="1111 2222 3333 4444">
                     </div>
                     <div class="form-group">
@@ -325,11 +371,23 @@
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">e-Mail</label>
                         <input type="email" required id="email" class="form-control" placeholder="direccion@dominio.com">
+=======
+                        <input class="form-control" id="ccn" type="tel" inputmode="numeric" placeholder="1111 2222 3333 4444">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Fecha de expiración</label>
+                        <input type="text" class="form-control" placeholder="Mes/Año">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">CVV</label>
+                        <input type="text" class="form-control" placeholder="###">
+>>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
                     </div>
                     <h1 id="tot2" style="text-align: center;">Total a pagar: Q 0.00</h1>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+<<<<<<< HEAD
                     <a onclick="enviarmail()" class="btn btn-primary">
                         <span id="spiner" hidden class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                         Pagar
@@ -338,6 +396,9 @@
                 <div class="modal-footer">
                 </div>
                 <div class="modal-footer">
+=======
+                    <input type="submit" class="btn btn-primary" value="Pagar" />
+>>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
                 </div>
             </div>
         </div>
