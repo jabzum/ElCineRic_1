@@ -144,12 +144,9 @@
     <Compile Include="Controllers\FuncionesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TmdbApiController.cs" />
-<<<<<<< HEAD
     <Compile Include="DAL\DataSetFuncion.cs">
       <DependentUpon>DataSetFuncion.xsd</DependentUpon>
     </Compile>
-=======
->>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
     <Compile Include="DAL\DataSetFuncion.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -179,13 +176,10 @@
     <Content Include="Content\img\casino.jpg" />
     <Content Include="Content\img\cineric.png" />
     <Content Include="Content\img\hp.jpg" />
-<<<<<<< HEAD
     <Content Include="Content\img\nachos.png" />
     <Content Include="Content\img\nachosoda.png" />
     <Content Include="Content\img\popcornsoda.png" />
     <Content Include="Content\img\poporopos.png" />
-=======
->>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
     <Content Include="Content\img\s.png" />
     <Content Include="Content\img\st1.jpg" />
     <Content Include="Content\img\st2.jpg" />

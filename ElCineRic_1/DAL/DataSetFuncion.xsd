@@ -351,7 +351,6 @@ ORDER BY total DESC</CommandText>
   <xs:element name="DataSetFuncion" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetFuncion" msprop:Generator_UserDSName="DataSetFuncion">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-<<<<<<< HEAD
         <xs:element name="Hora" msprop:Generator_TableClassName="HoraDataTable" msprop:Generator_TableVarName="tableHora" msprop:Generator_TablePropName="Hora" msprop:Generator_RowDeletingName="HoraRowDeleting" msprop:Generator_RowChangingName="HoraRowChanging" msprop:Generator_RowEvHandlerName="HoraRowChangeEventHandler" msprop:Generator_RowDeletedName="HoraRowDeleted" msprop:Generator_UserTableName="Hora" msprop:Generator_RowChangedName="HoraRowChanged" msprop:Generator_RowEvArgName="HoraRowChangeEvent" msprop:Generator_RowClassName="HoraRow">
           <xs:complexType>
             <xs:sequence>
@@ -405,61 +404,6 @@ ORDER BY total DESC</CommandText>
         <xs:element name="View_Funcion" msprop:Generator_TableClassName="View_FuncionDataTable" msprop:Generator_TableVarName="tableView_Funcion" msprop:Generator_TablePropName="View_Funcion" msprop:Generator_RowDeletingName="View_FuncionRowDeleting" msprop:Generator_RowChangingName="View_FuncionRowChanging" msprop:Generator_RowEvHandlerName="View_FuncionRowChangeEventHandler" msprop:Generator_RowDeletedName="View_FuncionRowDeleted" msprop:Generator_UserTableName="View_Funcion" msprop:Generator_RowChangedName="View_FuncionRowChanged" msprop:Generator_RowEvArgName="View_FuncionRowChangeEvent" msprop:Generator_RowClassName="View_FuncionRow">
           <xs:complexType>
             <xs:sequence>
-=======
-        <xs:element name="Hora" msprop:Generator_TableClassName="HoraDataTable" msprop:Generator_TableVarName="tableHora" msprop:Generator_RowChangedName="HoraRowChanged" msprop:Generator_TablePropName="Hora" msprop:Generator_RowDeletingName="HoraRowDeleting" msprop:Generator_RowChangingName="HoraRowChanging" msprop:Generator_RowEvHandlerName="HoraRowChangeEventHandler" msprop:Generator_RowDeletedName="HoraRowDeleted" msprop:Generator_RowClassName="HoraRow" msprop:Generator_UserTableName="Hora" msprop:Generator_RowEvArgName="HoraRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="hora" msprop:Generator_ColumnVarNameInTable="columnhora" msprop:Generator_ColumnPropNameInRow="hora" msprop:Generator_ColumnPropNameInTable="horaColumn" msprop:Generator_UserColumnName="hora">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Silla" msprop:Generator_TableClassName="SillaDataTable" msprop:Generator_TableVarName="tableSilla" msprop:Generator_RowChangedName="SillaRowChanged" msprop:Generator_TablePropName="Silla" msprop:Generator_RowDeletingName="SillaRowDeleting" msprop:Generator_RowChangingName="SillaRowChanging" msprop:Generator_RowEvHandlerName="SillaRowChangeEventHandler" msprop:Generator_RowDeletedName="SillaRowDeleted" msprop:Generator_RowClassName="SillaRow" msprop:Generator_UserTableName="Silla" msprop:Generator_RowEvArgName="SillaRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="id_silla" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_silla" msprop:Generator_ColumnPropNameInRow="id_silla" msprop:Generator_ColumnPropNameInTable="id_sillaColumn" msprop:Generator_UserColumnName="id_silla" type="xs:int" />
-              <xs:element name="id_funcion" msprop:Generator_ColumnVarNameInTable="columnid_funcion" msprop:Generator_ColumnPropNameInRow="id_funcion" msprop:Generator_ColumnPropNameInTable="id_funcionColumn" msprop:Generator_UserColumnName="id_funcion" type="xs:int" />
-              <xs:element name="silla" msprop:Generator_ColumnVarNameInTable="columnsilla" msprop:Generator_ColumnPropNameInRow="silla" msprop:Generator_ColumnPropNameInTable="sillaColumn" msprop:Generator_UserColumnName="silla">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="estado" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_UserColumnName="estado" type="xs:boolean" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Movie" msprop:Generator_TableClassName="MovieDataTable" msprop:Generator_TableVarName="tableMovie" msprop:Generator_RowChangedName="MovieRowChanged" msprop:Generator_TablePropName="Movie" msprop:Generator_RowDeletingName="MovieRowDeleting" msprop:Generator_RowChangingName="MovieRowChanging" msprop:Generator_RowEvHandlerName="MovieRowChangeEventHandler" msprop:Generator_RowDeletedName="MovieRowDeleted" msprop:Generator_RowClassName="MovieRow" msprop:Generator_UserTableName="Movie" msprop:Generator_RowEvArgName="MovieRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="id_movie" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_movie" msprop:Generator_ColumnPropNameInRow="id_movie" msprop:Generator_ColumnPropNameInTable="id_movieColumn" msprop:Generator_UserColumnName="id_movie" type="xs:int" />
-              <xs:element name="url" msprop:Generator_ColumnVarNameInTable="columnurl" msprop:Generator_ColumnPropNameInRow="url" msprop:Generator_ColumnPropNameInTable="urlColumn" msprop:Generator_UserColumnName="url">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="1000" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="titulo" msprop:Generator_ColumnVarNameInTable="columntitulo" msprop:Generator_ColumnPropNameInRow="titulo" msprop:Generator_ColumnPropNameInTable="tituloColumn" msprop:Generator_UserColumnName="titulo">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="200" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="View_Funcion" msprop:Generator_TableClassName="View_FuncionDataTable" msprop:Generator_TableVarName="tableView_Funcion" msprop:Generator_RowChangedName="View_FuncionRowChanged" msprop:Generator_TablePropName="View_Funcion" msprop:Generator_RowDeletingName="View_FuncionRowDeleting" msprop:Generator_RowChangingName="View_FuncionRowChanging" msprop:Generator_RowEvHandlerName="View_FuncionRowChangeEventHandler" msprop:Generator_RowDeletedName="View_FuncionRowDeleted" msprop:Generator_RowClassName="View_FuncionRow" msprop:Generator_UserTableName="View_Funcion" msprop:Generator_RowEvArgName="View_FuncionRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
->>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
               <xs:element name="id_funcion" msprop:Generator_ColumnVarNameInTable="columnid_funcion" msprop:Generator_ColumnPropNameInRow="id_funcion" msprop:Generator_ColumnPropNameInTable="id_funcionColumn" msprop:Generator_UserColumnName="id_funcion" type="xs:int" />
               <xs:element name="id_cine" msprop:Generator_ColumnVarNameInTable="columnid_cine" msprop:Generator_ColumnPropNameInRow="id_cine" msprop:Generator_ColumnPropNameInTable="id_cineColumn" msprop:Generator_UserColumnName="id_cine" type="xs:int" />
               <xs:element name="cine" msprop:Generator_ColumnVarNameInTable="columncine" msprop:Generator_ColumnPropNameInRow="cine" msprop:Generator_ColumnPropNameInTable="cineColumn" msprop:Generator_UserColumnName="cine">
@@ -507,11 +451,7 @@ ORDER BY total DESC</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-<<<<<<< HEAD
         <xs:element name="View_PeliculasHoy" msprop:Generator_TableClassName="View_PeliculasHoyDataTable" msprop:Generator_TableVarName="tableView_PeliculasHoy" msprop:Generator_TablePropName="View_PeliculasHoy" msprop:Generator_RowDeletingName="View_PeliculasHoyRowDeleting" msprop:Generator_RowChangingName="View_PeliculasHoyRowChanging" msprop:Generator_RowEvHandlerName="View_PeliculasHoyRowChangeEventHandler" msprop:Generator_RowDeletedName="View_PeliculasHoyRowDeleted" msprop:Generator_UserTableName="View_PeliculasHoy" msprop:Generator_RowChangedName="View_PeliculasHoyRowChanged" msprop:Generator_RowEvArgName="View_PeliculasHoyRowChangeEvent" msprop:Generator_RowClassName="View_PeliculasHoyRow">
-=======
-        <xs:element name="View_PeliculasHoy" msprop:Generator_TableClassName="View_PeliculasHoyDataTable" msprop:Generator_TableVarName="tableView_PeliculasHoy" msprop:Generator_RowChangedName="View_PeliculasHoyRowChanged" msprop:Generator_TablePropName="View_PeliculasHoy" msprop:Generator_RowDeletingName="View_PeliculasHoyRowDeleting" msprop:Generator_RowChangingName="View_PeliculasHoyRowChanging" msprop:Generator_RowEvHandlerName="View_PeliculasHoyRowChangeEventHandler" msprop:Generator_RowDeletedName="View_PeliculasHoyRowDeleted" msprop:Generator_RowClassName="View_PeliculasHoyRow" msprop:Generator_UserTableName="View_PeliculasHoy" msprop:Generator_RowEvArgName="View_PeliculasHoyRowChangeEvent">
->>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_movie" msprop:Generator_ColumnVarNameInTable="columnid_movie" msprop:Generator_ColumnPropNameInRow="id_movie" msprop:Generator_ColumnPropNameInTable="id_movieColumn" msprop:Generator_UserColumnName="id_movie" type="xs:int" />
@@ -548,11 +488,7 @@ ORDER BY total DESC</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-<<<<<<< HEAD
         <xs:element name="Sala" msprop:Generator_TableClassName="SalaDataTable" msprop:Generator_TableVarName="tableSala" msprop:Generator_RowChangedName="SalaRowChanged" msprop:Generator_TablePropName="Sala" msprop:Generator_RowDeletingName="SalaRowDeleting" msprop:Generator_RowChangingName="SalaRowChanging" msprop:Generator_RowEvHandlerName="SalaRowChangeEventHandler" msprop:Generator_RowDeletedName="SalaRowDeleted" msprop:Generator_RowClassName="SalaRow" msprop:Generator_UserTableName="Sala" msprop:Generator_RowEvArgName="SalaRowChangeEvent">
-=======
-        <xs:element name="Sala" msprop:Generator_TableClassName="SalaDataTable" msprop:Generator_TableVarName="tableSala" msprop:Generator_TablePropName="Sala" msprop:Generator_RowDeletingName="SalaRowDeleting" msprop:Generator_RowChangingName="SalaRowChanging" msprop:Generator_RowEvHandlerName="SalaRowChangeEventHandler" msprop:Generator_RowDeletedName="SalaRowDeleted" msprop:Generator_UserTableName="Sala" msprop:Generator_RowChangedName="SalaRowChanged" msprop:Generator_RowEvArgName="SalaRowChangeEvent" msprop:Generator_RowClassName="SalaRow">
->>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_sala" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_sala" msprop:Generator_ColumnPropNameInRow="id_sala" msprop:Generator_ColumnPropNameInTable="id_salaColumn" msprop:Generator_UserColumnName="id_sala" type="xs:int" />
@@ -570,11 +506,7 @@ ORDER BY total DESC</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-<<<<<<< HEAD
         <xs:element name="View_TotalxPelicula" msprop:Generator_TableClassName="View_TotalxPeliculaDataTable" msprop:Generator_TableVarName="tableView_TotalxPelicula" msprop:Generator_TablePropName="View_TotalxPelicula" msprop:Generator_RowDeletingName="View_TotalxPeliculaRowDeleting" msprop:Generator_RowChangingName="View_TotalxPeliculaRowChanging" msprop:Generator_RowEvHandlerName="View_TotalxPeliculaRowChangeEventHandler" msprop:Generator_RowDeletedName="View_TotalxPeliculaRowDeleted" msprop:Generator_UserTableName="View_TotalxPelicula" msprop:Generator_RowChangedName="View_TotalxPeliculaRowChanged" msprop:Generator_RowEvArgName="View_TotalxPeliculaRowChangeEvent" msprop:Generator_RowClassName="View_TotalxPeliculaRow">
-=======
-        <xs:element name="View_TotalxPelicula" msprop:Generator_TableClassName="View_TotalxPeliculaDataTable" msprop:Generator_TableVarName="tableView_TotalxPelicula" msprop:Generator_RowChangedName="View_TotalxPeliculaRowChanged" msprop:Generator_TablePropName="View_TotalxPelicula" msprop:Generator_RowDeletingName="View_TotalxPeliculaRowDeleting" msprop:Generator_RowChangingName="View_TotalxPeliculaRowChanging" msprop:Generator_RowEvHandlerName="View_TotalxPeliculaRowChangeEventHandler" msprop:Generator_RowDeletedName="View_TotalxPeliculaRowDeleted" msprop:Generator_RowClassName="View_TotalxPeliculaRow" msprop:Generator_UserTableName="View_TotalxPelicula" msprop:Generator_RowEvArgName="View_TotalxPeliculaRowChangeEvent">
->>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_movie" msprop:Generator_ColumnVarNameInTable="columnid_movie" msprop:Generator_ColumnPropNameInRow="id_movie" msprop:Generator_ColumnPropNameInTable="id_movieColumn" msprop:Generator_UserColumnName="id_movie" type="xs:int" />
@@ -610,13 +542,6 @@ ORDER BY total DESC</CommandText>
       <xs:selector xpath=".//mstns:Movie" />
       <xs:field xpath="mstns:id_movie" />
     </xs:unique>
-<<<<<<< HEAD
-=======
-    <xs:unique name="View_PeliculasHoy_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:View_PeliculasHoy" />
-      <xs:field xpath="mstns:id_movie" />
-    </xs:unique>
->>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
     <xs:unique name="Sala_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Sala" />
       <xs:field xpath="mstns:id_sala" />

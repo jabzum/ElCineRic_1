@@ -54,16 +54,6 @@ namespace ElCineRic_1.Controllers
         }
 
         public ActionResult Taquilleras()
-<<<<<<< HEAD
-        {
-            Funciones f = new Funciones();
-            return View(f.Taquilleras());
-        }
-        public ActionResult SelPeliculas()
-        {
-            Funciones f = new Funciones();
-            return View(f.PeliculasHoy());
-=======
         {
             Funciones f = new Funciones();
             return View(f.Taquilleras());
@@ -74,24 +64,8 @@ namespace ElCineRic_1.Controllers
             return View(f.PeliculasHoy());
         }
 
-        public ActionResult Dia(string id, string sala, string idimdb)
-        {
-            Session["idmovie"] = id;
-            Session["idimdb"] = idimdb;
-            Session["sala"] = sala;
-            List<DateTime> dias = new List<DateTime>();
-            for(int x = 0; x<6; x++)
-            {
-                DateTime d = DateTime.Now.AddDays(x);
-                dias.Add(d);
-            }
-            return View(dias);
->>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
-        }
 
 
-
-<<<<<<< HEAD
         public ActionResult Dia(string id, string sala, string idimdb)
         {
             Session["idmovie"] = id;
@@ -108,8 +82,6 @@ namespace ElCineRic_1.Controllers
 
 
 
-=======
->>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
         public ActionResult Pelis()
         {
            

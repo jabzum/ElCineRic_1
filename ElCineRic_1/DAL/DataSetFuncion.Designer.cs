@@ -1955,16 +1955,6 @@ namespace ElCineRic_1.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-<<<<<<< HEAD
-=======
-            public View_PeliculasHoyRow FindByid_movie(int id_movie) {
-                return ((View_PeliculasHoyRow)(this.Rows.Find(new object[] {
-                            id_movie})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
->>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
             public override global::System.Data.DataTable Clone() {
                 View_PeliculasHoyDataTable cln = ((View_PeliculasHoyDataTable)(base.Clone()));
                 cln.InitVars();
@@ -2006,14 +1996,7 @@ namespace ElCineRic_1.DAL {
                 base.Columns.Add(this.columncalidad);
                 this.columnprecio = new global::System.Data.DataColumn("precio", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprecio);
-<<<<<<< HEAD
                 this.columnid_movie.AllowDBNull = false;
-=======
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid_movie}, true));
-                this.columnid_movie.AllowDBNull = false;
-                this.columnid_movie.Unique = true;
->>>>>>> 8f2480eef7fba4ddd6bfe1b8093650fb4fa3a844
                 this.columnurl.AllowDBNull = false;
                 this.columnurl.MaxLength = 1000;
                 this.columntitulo.AllowDBNull = false;
