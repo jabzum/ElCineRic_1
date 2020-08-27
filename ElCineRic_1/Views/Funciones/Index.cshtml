@@ -1,11 +1,347 @@
-﻿@model System.Data.DataTable
+﻿@model ElCineRic_1.Objetos.Butacas
 @{
-    ViewBag.Title = "Json desde la DB";
+    ViewBag.Title = "Selección de butaca";
 }
 
-@{ 
-    for (int x = 0; x < Model.Rows.Count; x++)
-    {
-        @:<h1> @Model.Rows[x][10].ToString()</h1>
+<style>
+    .pantalla {
+        width: 70%;
+        height: 50px;
+        background: #183b42;
+        position: relative;
+        overflow: hidden;
+        border-radius: 100% 100% 0 0;
+        text-align: center;
+        vertical-align: middle;
+        padding-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
     }
+</style>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function calcular() {
+        let seleccionados = document.querySelectorAll('input[type="checkbox"]:checked').length;
+        let pop = 20 * document.getElementById('popcorn').value;
+        let nach = 25 * document.getElementById('nachos').value;
+        let precio = document.getElementById('precio').innerHTML
+        let total = (precio * seleccionados) + pop + nach;
+
+        document.getElementById('tot').innerHTML = 'Q. ' + total
+        document.getElementById('tot2').innerHTML = 'Total a pagar Q. ' + total
+    }
+    function cambiar(id) {
+        var check = document.getElementById('c' + id);
+        var img = document.getElementById('i' + id);
+        console.log(check)
+        if (check.checked)
+            img.src = '/Content/img/u.png';
+        else
+            img.src = '/Content/img/s.png';
+        check.checked = !check.checked;
+        calcular();
+    }
+    function enviarmail() {
+        if (document.getElementById("formulario").checkValidity()) {
+            let seleccionados = document.querySelectorAll('input[type="checkbox"]:checked');
+            let s = ""
+            seleccionados.forEach(element => {
+                s += element.alt + ", "
+            });
+            console.log(s)
+            let spiner = document.getElementById("spiner")
+            spiner.removeAttribute("hidden")
+            let cantpop = document.getElementById("popcorn").value
+            let cantnachos = document.getElementById("nachos").value
+            let tickets = "Tickets para la(s) butaca(s): " + s
+            let comida = ""
+            let comida2 = ""
+            let direccion = document.getElementById("email").value
+            let infofuncion = document.getElementById("infofuncion").innerHTML
+            console.log(direccion)
+            if (cantpop > 0)
+                comida = "" + cantpop + " combo(s) de poporopos y soda"
+            if (cantnachos > 0)
+                comida2 = "" + cantnachos + " combo(s) de nachos y soda"
+            Email.send({
+                SecureToken: "03a3c073-fcff-42f9-a533-5bd0491564b9",
+                To: direccion,
+                From: "rictrujillo@gmail.com",
+                Subject: "Entradas de cine",
+                Body: `
+        <!DOCTYPE html>
+        <html>
+
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+            <title>CineRic!</title>
+
+            <style>
+
+                body {margin:0; padding:0; -webkit-text-size-adjust:none; -ms-text-size-adjust:none;} img{line-height:100%; outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;} a img{border: none;} #backgroundTable {margin:0; padding:0; width:100% !important; } a, a:link{color:#2A5DB0; text-decoration: underline;} table td {border-collapse:collapse;} span {color: inherit; border-bottom: none;} span:hover { background-color: transparent; }
+
+            </style>
+
+            <style>
+        .scalable-image img{max-width:100% !important;height:auto !important}.button a{transition:background-color .25s, border-color .25s}.button a:hover{background-color:#e1e1e1 !important;border-color:#0976a5 !important}@@media only screen and (max-width: 400px){.preheader{font-size:12px !important;text-align:center !important}.header--white{text-align:center}.header--white .header__logo{display:block;margin:0 auto;width:118px !important;height:auto !important}.header--left .header__logo{display:block;width:118px !important;height:auto !important}}@@media screen and (-webkit-device-pixel-ratio), screen and (-moz-device-pixel-ratio){.sub-story__image,.sub-story__content{display:block
+        !important}.sub-story__image{float:left !important;width:200px}.sub-story__content{margin-top:30px !important;margin-left:200px !important}}@@media only screen and (max-width: 550px){.sub-story__inner{padding-left:30px !important}.sub-story__image,.sub-story__content{margin:0 auto !important;float:none !important;text-align:center}.sub-story .button{padding-left:0 !important}}@@media only screen and (max-width: 400px){.featured-story--top table,.featured-story--top td{text-align:left}.featured-story--top__heading td,.sub-story__heading td{font-size:18px !important}.featured-story--bottom:nth-child(2) .featured-story--bottom__inner{padding-top:10px
+        !important}.featured-story--bottom__inner{padding-top:20px !important}.featured-story--bottom__heading td{font-size:28px !important;line-height:32px !important}.featured-story__copy td,.sub-story__copy td{font-size:14px !important;line-height:20px !important}.sub-story table,.sub-story td{text-align:center}.sub-story__hero img{width:100px !important;margin:0 auto}}@@media only screen and (max-width: 400px){.footer td{font-size:12px !important;line-height:16px !important}}
+            @@media screen and (max-width:600px) {
+            table[class="columns"] {
+                margin: 0 auto !important;float:none !important;padding:10px 0 !important;
+            }
+            td[class="left"] {
+            padding: 0px 0 !important;
+            </style>
+
+        </head>
+
+        <body style="background: #e1e1e1;font-family:Arial, Helvetica, sans-serif; font-size:1em;"><style type="text/css">
+        div.preheader 
+        { display: none !important; } 
+        </style>
+        <div class="preheader" style="font-size: 1px; display: none !important;"></div>
+            <table id="backgroundTable" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#e1e1e1;">
+                <tr>
+                    <td class="body" align="center" valign="top" style="background:#e1e1e1;" width="100%">
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="640">
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td class="main" width="640" align="center" style="padding: 0 10px;">
+                                    <table style="min-width: 100%; " class="stylingblock-content-wrapper" width="100%" cellspacing="0" cellpadding="0"><tr><td class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0">
+        <tr>
+        <td width="640" align="left">
+        <table width="100%" cellspacing="0" cellpadding="0">
+            <tr>
+            <td class="header header--left" style="padding: 20px 10px;" align="left">
+            <h1>La información de tu compra en CineRic está acá!</h1>
+            </td>     
+            </tr>
+            <tr>
+                <td style="font-family: Geneva, Tahoma, Verdana, sans-serif; font-size: 16px; line-height: 22px; color: #555555; padding-top: 16px;" align="left">
+                        <h2>Tu compra fue: ${tickets} </h2>
+                        <h2>${infofuncion}</h2>
+                        <h2>${comida}<h2>
+                        <h2>${comida2}<h2>
+                    </td>
+            </tr>
+        </table>
+        </td>
+        </tr>
+        </table></td></tr></table><table style="min-width: 100%; " class="stylingblock-content-wrapper" width="100%" cellspacing="0" cellpadding="0"><tr><td class="stylingblock-content-wrapper camarker-inner"><table class="featured-story featured-story--top" cellspacing="0" cellpadding="0">
+        <tr>
+        <td style="padding-bottom: 20px;">
+        <table cellspacing="0" cellpadding="0">
+            <tr>
+            <td class="featured-story__inner" style="background: #fff;">
+            <table cellspacing="0" cellpadding="0">
+            <tr>
+                <td class="scalable-image" width="640" align="center">
+                <a href="" ><img src="https://www.kaspersky.com/content/en-global/images/repository/isc/2020/9910/a-guide-to-qr-codes-and-how-to-scan-qr-codes-2.png" alt="" style="display: block; border: 0; max-width: 100%; height: auto;" width="640"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="featured-story__content-inner" style="padding: 32px 30px 45px;">
+                <table cellspacing="0" cellpadding="0">
+                <tr>
+                <td class="featured-story__heading featured-story--top__heading" style="background: #fff;" width="640" align="left">
+                    <table cellspacing="0" cellpadding="0">
+                    <tr>
+                    <td style="font-family: Geneva, Tahoma, Verdana, sans-serif; font-size: 22px; color: #464646;" width="400" align="left">
+                    <a href="https://click.e.mozilla.org/?qs=4efe345e8852f56cde6916bcb807227bf64dfe9972687c7afed3251bf31f6e1a8aa807abb470382b057fd0255d31d21c24ed6f000cb22d89"  style="text-decoration: none; color: #464646;">Disfruta de la función!</a>
+                    </td>
+                    </tr>
+                    </table>
+                </td>
+                </tr>
+                <tr>
+                <td class="featured-story__copy" style="background: #fff;" width="640" align="center">
+                    <table cellspacing="0" cellpadding="0">
+                    <tr>
+                    
+                    </tr>
+                    </table>
+                </td>
+                </tr>
+                <tr>
+                        <td class="button" style="font-family: Geneva, Tahoma, Verdana, sans-serif; font-size: 16px; padding-top: 26px;" width="640" align="left">
+                        <a href="http://ventanas.somee.com/Funciones/Selpeliculas"  style="background: #0c99d5; color: #fff; text-decoration: none; border: 14px solid #0c99d5; border-left-width: 50px; border-right-width: 50px; text-transform: uppercase; display: inline-block;">
+                        Visítanos
+                        </a>
+                </td>
+                        </tr>
+                </table>
+                </td>
+            </tr>
+            </table>
+            </td>
+            </tr>
+        </table>
+        </td>
+        </tr>
+        </table></td></tr></table></td>
+                            </tr>
+                            <tr>
+                            <td class="footer" width="640" align="center" style="padding-top: 10px;">
+                            <table cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td align="center" style="font-family: Geneva, Tahoma, Verdana, sans-serif; font-size: 14px; line-height: 18px; color: #738597; padding: 0 20px 40px;">
+                                            <br>      <br>
+        <strong>Gracias por tu preferencia!</strong>
+
+        <br> 
+        Has recibido este correo como un comprobante de la compra que realizaste en CineRic!  
+
+        <br>
+        <br>
+
+        <br>
+        <br>
+                            
+                                </td>
+                            </tr>
+                            </table>
+                            </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+        
+        </custom></body>
+        </html>
+                `
+            }).then(
+                message => {
+                    console.log(message)
+                    document.getElementById("formulario").submit();
+                }
+            );
+        }
+        else
+            alert("Hay campos que no se llenaron correctamente, por favor verifica");
+    } 
+</script>
+<br />
+@{
+    DateTime fecha = Convert.ToDateTime(Session["fecha"].ToString());
+    @:<h2 id="infofuncion" class="text-center">Función del @fecha.ToString("d") a las @Session["hora"] horas en la Sala @Session["sala"]</h2>
 }
+<div class='pantalla'><h4>PANTALLA</h4></div>
+<br />
+<br />
+
+<form id="formulario" action="/Funciones/Create" method="post">
+    <table style="border:1px solid black;margin-left:auto;margin-right:auto; border-radius:15px">
+@{
+    int f = Convert.ToInt32(Session["filas"].ToString());
+    int c = Convert.ToInt32(Session["columnas"]);
+    int cf = 1;
+    int cc = 0;
+    decimal pre = Convert.ToDecimal(Session["precio"].ToString());
+    double precio = Convert.ToDouble(pre);
+
+    for (int x = 0; x < Model.ListaButacas.Count; x++)
+    {
+        string im = "";
+        string id = Model.ListaButacas.ElementAt(x).id;
+        string id_silla = Model.ListaButacas.ElementAt(x).id_silla;
+        string cid = "c" + id;
+        string iid = "i" + id;
+        string funcion = "";
+
+
+        if (Model.ListaButacas.ElementAt(x).ocupado)
+        { im = "/Content/img/c.png"; funcion = ""; }
+        else { im = "/Content/img/u.png"; funcion = "onClick=cambiar('" + id + "')"; }
+
+
+        @Html.Raw(cc == 0 ? "<tr>" : "")
+          @:<td> <div id='@id' style="margin-top: 20px;" class="checkbox-wrapper" @funcion>
+            @:<input style="opacity: 0" id='@cid' alt="@id"type="checkbox" name='@id_silla'/>
+            @:<h5 style="text-align: center"> @id </h5>
+            @:<img width="80" height="80" id="@iid" src="@im" />       
+        @:</div> </td> @Html.Raw(cc == c ? "</tr>" : "")
+        cc++;
+        if (cc == c)
+        { cc = 0; }
+    }
+    @:</table>
+    @:<br />
+    }
+
+    <div class="d-flex justify-content-center" style="margin: 20px;">
+            <h3 id="tot">Total a pagar: Q 0.00</h3> <button style="margin-left: 20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="data">Confirmar</button>
+    </div>
+    
+    
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirma tu selección</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center; vertical-align: middle;">
+                        <h4>¿Cuantos combos de palomitas y bebida deseas agregar? (Q. 20 c/u)</h4>
+                        <img width=70px src="/Content/img/popcornsoda.png" alt="">
+                        <input style="margin-left: 10px" type="number" id="popcorn" oninput="calcular()" onclick="calcular()" min=0 max=100 value=0>
+                    </div>
+                    <div style="text-align: center; vertical-align: middle;">
+                        <h4>¿Cuantos combos de nachos y bebida deseas agregar? (Q. 25 c/u)</h4>
+                        <img width=80px src="/Content/img/nachosoda.png" alt="">
+                        <input style="margin-left: 10px" type="number" id="nachos" oninput="calcular()" onclick="calcular()" min=0 max=100 value=0>
+                    </div>
+                    <div class="form-group">
+                        <br>
+                        <div class="icon-container">
+                            <label for="fname">Tarjetas aceptadas:</label>
+                            <i class="fa fa-cc-visa" style="color:rgb(255, 255, 255);"></i>
+                            <i class="fa fa-cc-amex" style="color:rgb(10, 131, 36);"></i>
+                            <i class="fa fa-cc-mastercard" style="color:rgb(135, 30, 30);"></i>
+                            <i class="fa fa-cc-discover" style="color:orange;"></i>
+                        </div>
+                        <label class="col-form-label" for="ccn">Número de tarjeta:</label>
+                        <input class="form-control" required id="ccn" type="tel" inputmode="numeric" placeholder="1111 2222 3333 4444">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Fecha de expiración</label>
+                        <input type="text" required class="form-control" placeholder="Mes/Año">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">CVV</label>
+                        <input type="text" required class="form-control" placeholder="###">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">e-Mail</label>
+                        <input type="email" required id="email" class="form-control" placeholder="direccion@dominio.com">
+                    </div>
+                    <h1 id="tot2" style="text-align: center;">Total a pagar: Q 0.00</h1>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <a onclick="enviarmail()" class="btn btn-primary">
+                        <span id="spiner" hidden class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Pagar
+                    </a>                   
+                </div>
+                <div class="modal-footer">
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 hidden id="precio">@precio</h1>
+</form>
+

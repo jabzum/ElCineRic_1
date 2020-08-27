@@ -1,0 +1,84 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "MasBarato";
+}
+
+<br />
+<h1 class="text-center">Selecciona la función</h1>
+<br />
+<div class="row">
+    <div class="col-md-6" style="text-align:center">
+        <img id="pic" src="" />
+    </div>
+    <div class="col-md-4">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    for (int x = 0; x < Model.Rows.Count; x++)
+                    {
+                        @:<tr>
+                            DateTime fecha = Convert.ToDateTime(Model.Rows[x][11].ToString());
+                            @:<th scope="row">@fecha.ToString("d")</th>
+                            @:<td>@Model.Rows[x][13].ToString()</td>
+                            decimal precio = Convert.ToDecimal(Model.Rows[x][12].ToString());
+                            @:<td>Q. @precio.ToString(".00")</td>
+                            @:<td> <a href="/Funciones/Index/@Model.Rows[x][0].ToString()" class="badge badge-pill badge-success"> Comprar </a> </td>
+                        @:</tr>
+                    }
+
+
+                }
+                
+            </tbody>
+        </table> 
+    </div>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js">
+
+
+</script>
+<script>
+
+    function cargar() {
+        var img = document.getElementById('pic');
+        let a = "http://www.omdbapi.com/?apikey=819e143&plot=full&i=";
+            let b = '@Session["idimdb"]';
+            let s = "";
+            s = a.concat(b);
+            console.log("esto es s" + s);
+            axios.get(s)
+                .then((response) => {
+                    console.log(response);
+                    let movie = response.data;
+                    img.src = movie.Poster;
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+
+    }
+
+
+    $(document).ready(() => {
+        cargar();
+    });
+</script>
+
+
+
+

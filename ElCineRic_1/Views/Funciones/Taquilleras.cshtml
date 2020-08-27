@@ -1,0 +1,101 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Taquilleras";
+}
+
+<br />
+<h2 style="text-align: center">Ranking Semanal</h2>
+
+<br />
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+</script>
+
+<div clas="row">
+    <div class="col-md-9" style="margin-left: auto; margin-right: auto">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Ranking </th>
+                    <th scope="col">Poster</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Ingresos</th>
+                </tr>
+            </thead>
+            <tbody id="cont" style="vertical-align: middle">
+                @{
+                    for (int x = 0; x < Model.Rows.Count; x++)
+                    {
+                    @:<tr>
+                        string onclick = "onclick=movieSelected('" + Model.Rows[x][1].ToString() + "')";
+                        @:<th style=" text-align:center; vertical-align: middle" scope="row"> <h2> @(x + 1)</h2></th>
+                        @:<td style="vertical-align: middle"> <img id="@Model.Rows[x][1].ToString()" @onclick height="90px" src="https://images-na.ssl-images-amazon.com/images/I/61SjS3j2qBL._AC_SL1068_.jpg" alt=""> </td>
+                        @:<td style="vertical-align: middle">@Model.Rows[x][2].ToString()</td>
+                        decimal tot = Convert.ToDecimal(Model.Rows[x][3].ToString());
+                        @:<td style="vertical-align: middle">Q. @tot.ToString(".00")</td>
+                        @:<td style="vertical-align: middle"> <p style="cursor:default" class="badge badge-pill badge-success" @onclick > Ver info. </p> </td>
+                    @:</tr>
+                    }
+
+                  }
+
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js">
+
+
+</script>
+<script>
+
+    function movieSelected(id) {
+        sessionStorage.setItem('movieId', id);
+        window.location = 'movie';
+        return false;
+    }
+
+    function cargar() {
+        var parent = document.getElementById('cont');
+        var lis = parent.getElementsByTagName('img');
+        console.log(lis);
+        let l = lis.length;
+        for (let i = 0; i < l; i++) {
+            let movieID = lis[i].getAttribute('id');
+            let img = lis[i];
+            console.log(movieID);
+            let a = "http://www.omdbapi.com/?apikey=819e143&plot=full&i=";
+            let b = movieID;
+            let s = "";
+            s = a.concat(b);
+            console.log("esto es s" + s);
+            axios.get(s)
+                .then((response) => {
+                    console.log(response);
+                    let movie = response.data;
+                    img.src = movie.Poster;
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+    }
+
+
+    $(document).ready(() => {
+        cargar();
+    });
+</script>
+

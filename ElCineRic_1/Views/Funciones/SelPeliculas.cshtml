@@ -1,0 +1,99 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Seleccionar Sala";
+}
+<br />
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+@if (Session["mensaje"] != null)
+{
+    <div style="margin: 30px;" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Tu pago se ha recibido! te esperamos!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    
+}
+@if (Session["mensaje"] != null) {
+    Session["mensaje"] = null;
+}
+
+<h1>En cartelera</h1>
+<br />
+
+<div id="cont" class="d-flex justify-content-center">
+    @{
+        for (int x = 0; x < Model.Rows.Count; x++)
+        {
+            decimal ppp = Convert.ToDecimal(Model.Rows[x][6].ToString());
+            @:<div class="card" style="width: 18rem;">
+            string onclick = "onclick=movieSelected('" + Model.Rows[x][1].ToString() + "')";
+                @:<img id="@Model.Rows[x][1].ToString()"  @onclick class="card-img-top" src="" alt="Card image cap">
+                @:<div class="card-body">
+                    @:<h5 class="card-title">@Model.Rows[x][2].ToString()</h5>
+                    string info = "Q. " + ppp.ToString(".00") + " (HOY)";
+                    string salaa = Model.Rows[x][4].ToString() + " - " + Model.Rows[x][5].ToString();
+                    @:<p class="card-text"><strong>@salaa</strong></p>
+                    @:<p class="card-text">@info</p>
+            
+                    @:<a href="/Funciones/Dia/@Model.Rows[x][0].ToString()/@Model.Rows[x][3].ToString()/@Model.Rows[x][1].ToString()" class="btn btn-success">Seleccionar</a>
+                    @:<a style="margin-left:7px" class="badge badge-pill badge-danger" href="/Funciones/MasBarato/@Model.Rows[x][0].ToString()/@Model.Rows[x][3].ToString()/@Model.Rows[x][1].ToString()">Promociones</a>
+                    
+                @:</div>
+             @:</div>
+        }
+    }
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js">
+
+
+</script>
+<script>
+
+    function movieSelected(id) {
+        sessionStorage.setItem('movieId', id);
+        window.location = 'movie';
+        return false;
+    }
+
+    function cargar() {
+        var parent = document.getElementById('cont');
+        var lis = parent.getElementsByTagName('img');
+        console.log(lis);
+        let l = lis.length;
+        for (let i = 0; i < l; i++) {
+            let movieID = lis[i].getAttribute('id');
+            let img = lis[i];
+            console.log(movieID);
+            let a = "http://www.omdbapi.com/?apikey=819e143&plot=full&i=";
+            let b = movieID;
+            let s = "";
+            s = a.concat(b);
+            console.log("esto es s" + s);
+            axios.get(s)
+                .then((response) => {
+                    console.log(response);
+                    let movie = response.data;
+                    img.src = movie.Poster;
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+    }
+
+
+    $(document).ready(() => {
+        cargar();
+    });
+</script>
+
